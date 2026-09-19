@@ -1,10 +1,10 @@
 from logging.config import fileConfig
 
-from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from app.db import Base, DATABASE_URL
-from app.models import *  # noqa: F401,F403  (registers models on Base.metadata)
+from alembic import context
+from app.db import DATABASE_URL, Base
+from app.models import *
 
 config = context.config
 config.set_main_option("sqlalchemy.url", DATABASE_URL)
